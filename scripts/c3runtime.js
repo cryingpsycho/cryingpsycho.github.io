@@ -4356,7 +4356,11 @@ self.C3_GetObjectRefTable = function () {
 		C3.Behaviors.Tween.Cnds.OnTweensFinished,
 		C3.Plugins.System.Acts.SetBoolVar,
 		C3.Plugins.Browser.Cnds.OnResize,
-		C3.Plugins.Browser.Cnds.OnBackButton
+		C3.Plugins.Browser.Cnds.OnBackButton,
+		C3.Plugins.System.Cnds.OnLoadFinished,
+		C3.Plugins.System.Cnds.EveryTick,
+		C3.Plugins.Sprite.Acts.SetX,
+		C3.Plugins.System.Exps.loadingprogress
 	];
 };
 self.C3_JsPropNameTable = [
@@ -4506,9 +4510,9 @@ self.C3_ExpressionFuncs = [
 			const n0 = p._GetNode(0);
 			return () => (n0.ExpInstVar_Family() / 100);
 		},
-		() => "ReverseFaggot",
-		() => "ReverseFaggot2",
-		() => "ReverseFaggot3",
+		() => "FadeIn",
+		() => "FadeIn2",
+		() => "FadeIn3",
 		() => "https://store.steampowered.com/app/2107520/Krimson/",
 		() => "https://discord.com/invite/yR4xkkZ",
 		() => "https://cryingpsycho.bandcamp.com/releases",
@@ -4517,30 +4521,34 @@ self.C3_ExpressionFuncs = [
 		() => 200,
 		() => 0,
 		() => 0.7,
-		() => "Faggot",
+		() => "FadeOut",
 		() => "Brightness",
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpBehavior("Faggot");
+			return () => n0.ExpBehavior("FadeOut");
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpBehavior("ReverseFaggot");
+			return () => n0.ExpBehavior("FadeIn");
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpBehavior("ReverseFaggot2");
+			return () => n0.ExpBehavior("FadeIn2");
 		},
 		p => {
 			const n0 = p._GetNode(0);
-			return () => n0.ExpBehavior("ReverseFaggot3");
+			return () => n0.ExpBehavior("FadeIn3");
 		},
 		() => 1260,
 		() => 540,
 		() => 3,
 		() => "https://www.youtube.com/@cryingpsycho3984",
 		() => "https://twitter.com/CryingPsycho666",
-		() => 900
+		() => 900,
+		p => {
+			const f0 = p._GetNode(0).GetBoundMethod();
+			return () => (630 + (f0() * 1152));
+		}
 ];
 
 
